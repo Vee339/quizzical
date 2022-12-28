@@ -11,7 +11,7 @@
         const [completed, setCompleted] = React.useState(false)
         const [questions, setQuestions] = React.useState([])
         const [score, setScore] = React.useState(0)
-        const [resetGame, setResetGame] = React.useState(false)
+        const [resetGame, setResetGame] = React.useState(0)
 
 
         React.useEffect(() =>{
@@ -26,7 +26,7 @@
 
                 setQuestions(questions)
             })
-            setResetGame(false)
+            
         },[resetGame])
 
         
@@ -66,7 +66,7 @@
         function reset(){
             setCompleted(false)
             setScore(0)
-            setResetGame(true)
+            setResetGame(resetGame + 1)
         }
         
         
