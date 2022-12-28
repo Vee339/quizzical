@@ -1,7 +1,8 @@
-    import React from 'react'
-    import HomePage from './components/Home.js'
-    import Questionnaire from './components/Questionnaire.js'
-    import './index.css'
+   import React from 'react';
+    import HomePage from './components/Home.js';
+    import Questionnaire from './components/Questionnaire.js';
+    import './index.css';
+    
 
 
     export default function App(){
@@ -34,11 +35,7 @@
             setStarted(true)
         }
 
-        const styles = {
-            backgroundImage : "url(/images/background.svg)",
-            backgroundPosition: "center center",
-            backgroundSize: "cover"
-        }
+       
 
         
     var chosenAns
@@ -85,7 +82,7 @@
         })
             
         return(
-            <main style={styles}>
+            <main>
                 {started ? 
                 <div className="content">
                     <div id="questions">
