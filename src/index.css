@@ -147,6 +147,7 @@ main .content .score button{
 
 @media screen and (max-width:800px) {
     body{
+        width:100%;
         height:1100px;
     }
     main{
