@@ -12,6 +12,7 @@
         const [questions, setQuestions] = React.useState([])
         const [score, setScore] = React.useState(0)
         const [resetGame, setResetGame] = React.useState(0)
+        const [checked, setChecked] = React.useState(false)
 
 
         React.useEffect(() =>{
@@ -21,6 +22,7 @@
                 const questions = data.results.map((question) => ({
                     question: question.question,
                     correct_answer: question.correct_answer,
+                    selected_answer: null,
                     answers: [question.correct_answer, ...question.incorrect_answers].sort(() => Math.random() - 0.5)
                 }))
 
@@ -38,35 +40,30 @@
        
 
         
-    var chosenAns
+    
     
 
         function incrScore(ans,id){
-            
-            questions[id].chosenAns = [ans]
 
-            if(questions[id].correct_answer == questions[id].chosenAns){
+            questions[id].selected_answer = [ans] 
+            questions[id].selected_answer = [ans]
+
+            if(questions[id].correct_answer == questions[id].selected_answer){
                 setScore(score + 1)
             }
-        
             
         }
         
         function calculateScore(){
-            setCompleted(true)  
-            questions.map(ques => {
-                if(ques.chosenAns == ques.correct_answer){
-                    console.log("correct answer")
-                }else{
-                    console.log("incorrect answer")
-                }
-            })     
+            setCompleted(true)     
+            setChecked(true)
         }
         
         function reset(){
-            setCompleted(false)
-            setScore(0)
             setResetGame(resetGame + 1)
+            setCompleted(false)
+            setChecked(false)
+            setScore(0)
         }
         
         
@@ -77,7 +74,9 @@
                         ques={data.question} 
                         ans={data.answers} 
                         corrAns={data.correct_answer} 
+                        selectedAns={data.selected_answer}
                         incrScore={(ans, id) => incrScore(ans, id)}
+                        checked={checked}
                     />
         })
             

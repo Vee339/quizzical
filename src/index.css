@@ -106,12 +106,12 @@ main #questions .question .options li.selected{
     border:none;
     color:#293264;
 }
-main #questions .question .options li.correctAns{
+main #questions .question .options li#correct-answer.answer{
     background: #94D7A2;
     color:#293264;
     border:none;
 }
-main #questions .question .options li.incorrectAns{
+main #questions .question .options li#incorrect-answer.answer.selected{
     background: #F8BCBC;
     color:#293264;
     border:none;

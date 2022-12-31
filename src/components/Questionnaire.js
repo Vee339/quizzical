@@ -17,10 +17,22 @@ function handleClick(answer){
     }
 
 
-    const runOptions = props.ans.map((answer, index) => {
+    const runOptions = props.ans.map((answer) => {
+        let id = null
+
+        if(props.checked){
+            if(props.corrAns == answer){
+                id="correct-answer"
+            }else if(props.selectedAns == answer){
+                id="incorrect-answer"
+            }else{
+                id="not-selected"
+            }
+        }
+        
         return <li dangerouslySetInnerHTML={{__html:answer}} 
-            className={answer === selectedAnswer ? "selected" : ""} 
-            key={index} 
+            id={id}
+            className={answer === selectedAnswer ? "answer selected" : "answer"} 
             onClick={() => handleClick(answer)}
         />
     })
